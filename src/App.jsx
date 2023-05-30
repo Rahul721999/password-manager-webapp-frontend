@@ -1,5 +1,6 @@
 import {React, useState} from 'react';
 import { LoginPage, SignUp } from './components';
+import './App.css';
 const App = () =>{
     const [currForm, setCurrForm] = useState('login');
 

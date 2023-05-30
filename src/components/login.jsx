@@ -63,11 +63,12 @@ const LoginPage = (props) => {
             <Dashboard/>)
     }
     return (
-        <div className="login">
+        <div className="auth-form-container">
             <h2>Login</h2>
 
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="email">Email:</label>
+            <form className="login-form"
+                onSubmit={handleSubmit}>
+                <label htmlFor="email">email</label>
                 <input type="text" id="email"
                     value={email}
                     onChange={handleEmailChange}
@@ -77,7 +78,7 @@ const LoginPage = (props) => {
                     // Add required attribute for form validation
                 />
 
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="password">password</label>
                 <input type={passwordType}
                     id="password"
                     value={password}
@@ -90,13 +91,16 @@ const LoginPage = (props) => {
                 />
 
                 <label>
-                    Show Password:
-                    <input type="checkbox"
+                    show password
+                    <input className="box" type="checkbox"
                         onChange={handleCheckBox}/>
                 </label>
                 <button type="submit">Submit</button>
             </form>
-            <button  onClick={()=> props.onFormSwitch('signup')}>Don't have account? Try SignIn</button>
+            <button className="link-btn"
+                onClick={
+                    () => props.onFormSwitch('signup')
+            }>Don't have account? sign-in here</button>
         </div>
 
     );
