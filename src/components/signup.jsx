@@ -36,61 +36,59 @@ const SignUp = (props) => {
             const response = await fetch(base_url.concat("/Auth/SignUp"), {
                 method: "POST",
                 headers: {
-                  "Content-Type": "application/json",
-                  "Accept": "/",
-                  "Connection": "keep-alive"
-              },
-                body: JSON.stringify({
-                  "email" : email,
-                  "pass" : password,
-                  "first_name" : firstName,
-                  "last_name" : lastName,
-              })
+                    "Content-Type": "application/json",
+                    "Accept": "/",
+                    "Connection": "keep-alive"
+                },
+                body: JSON.stringify(
+                    {"email": email, "pass": password, "first_name": firstName, "last_name": lastName}
+                )
             })
 
-            if (response.ok){
-              const data = await response.json();
-              console.log(data)
-              alert('sign in successful');
-              setSignedIn(true);
-            }else{
-              console.log(response)
-              const data = await response.json();
-              alert(data.message)
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data)
+                alert('sign in successful');
+                setSignedIn(true);
+            } else {
+                console.log(response)
+                const data = await response.json();
+                alert(data.message)
             }
         } catch (err) {
-          console.log();
+            console.log();
         }
     };
 
-    if (signedIn){
-      props.onFormSwitch('login')
+    if (signedIn) {
+        props.onFormSwitch('login')
     }
 
     return (
-        <div className="Register">
-            <h2>Login</h2>
+        <div className="auth-form-container">
+            <h2>SignIn</h2>
 
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="fName"></label>
+            <form className="register-form"
+                onSubmit={handleSubmit}>
+                <label htmlFor="fName">name</label>
                 <input type="text" id="fname"
                     value={firstName}
                     onChange={handleFirstNameChange}
                     name="fname"
-                    placeholder="your full name"
+                    placeholder="Name"
                     required
                     // Add required attribute for form validation
                 />
-                <label htmlFor="lName"></label>
+                <label htmlFor="lName">last name</label>
                 <input type="text" id="lname"
                     value={lastName}
                     onChange={handleLastNameChange}
                     name="lname"
-                    placeholder="your full name"
+                    placeholder="surname"
                     required
                     // Add required attribute for form validation
                 />
-                <label htmlFor="email">Email:</label>
+                <label htmlFor="email">email:</label>
                 <input type="text" id="email"
                     value={email}
                     onChange={handleEmailChange}
@@ -100,7 +98,7 @@ const SignUp = (props) => {
                     // Add required attribute for form validation
                 />
 
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="password">password</label>
                 <input type="text" id="password"
                     value={password}
                     onChange={handlePasswordChange}
@@ -113,9 +111,10 @@ const SignUp = (props) => {
 
                 <button type="submit">Submit</button>
             </form>
-            <button onClick={
-                () => props.onFormSwitch('login')
-            }>Already have account? Try LogIn</button>
+            <button className="link-btn"
+                onClick={
+                    () => props.onFormSwitch('login')
+            }>Already have account? Log-In</button>
         </div>
 
     )
