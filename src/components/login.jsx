@@ -60,7 +60,8 @@ const LoginPage = (props) => {
     if (loggedIn) {
         console.log("email:%s login success", email);
         return (
-            <Dashboard/>)
+            <Dashboard/>
+        )
     }
     return (
         <div className="auth-form-container">
@@ -97,7 +98,7 @@ const LoginPage = (props) => {
                 </label>
                 <button type="submit">Submit</button>
             </form>
-            <button className="link-btn"
+            <button id="link-btn"
                 onClick={
                     () => props.onFormSwitch('signup')
             }>Don't have account? sign-in here</button>

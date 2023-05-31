@@ -1,10 +1,10 @@
 import React from "react";
+import List from "./cards";
 
 const Dashboard = () => {
   return (
-    <div>
-      <h2>Welcome to the Dashboard!</h2>
-      <p>You have successfully logged in.</p>
+    <div className="dashboard">
+      <div><List/></div>
     </div>
   );
 };
