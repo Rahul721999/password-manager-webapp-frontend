@@ -4,7 +4,12 @@ import List from "./cards";
 const Dashboard = () => {
   return (
     <div className="dashboard">
-      <div><List/></div>
+      <div className="heading-section">
+        <h2>Welcome</h2>
+      </div>
+      <div className="content-section">
+        <List/>
+      </div>
     </div>
   );
 };

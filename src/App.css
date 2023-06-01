@@ -79,14 +79,26 @@ button:hover {
     text-decoration:underline;
 }
 
+
+/* --------------------------------------Dashboard Page---------------------------------- */
 .dashboard {
+    --ms-overflow-style: none;
     height: 600px;
     width: 300px;
     padding : 5px;
     border: 1px solid white;
     border-radius: 10px;
     margin: 0.5rem;
+    overflow: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    overflow-y: scroll;
 }
+.dashboard::-webkit-scrollbar{
+    display: none;
+}
+
+/* --------------------------------------CARD style---------------------------------- */
 .card-body{
     text-align: left;
     text-size-adjust: 11px;
@@ -131,8 +143,47 @@ button:hover {
 }
 .card-pass-button:hover{
     background: none;
+    text-decoration: underline;
 }
 
-.card-footer{
-    margin-left: 240px;
+.card-footer {
+    height: 25px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .threeDot {
+    padding: 5px;
+    background: none;
+    width: 15px;
+    height: 10px;
+    transition: transform 0.3s ease;
+    transform: rotate(90deg);
+    display: flex;
+    align-items: center;
+  }
+  
+.threeDot:hover{
+    background-color: #c839db;
+    transform: rotate(270deg);
 }
+
+.dropdownMenu{
+    background: none;
+    border-radius: 2.5px;
+    margin: 0;
+    width: flex;
+    height: 25px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+
+}
+.dropdownItem{
+    margin: 6px;
+    padding: 0;
+}
+
+.dropdownItem:hover {
+    background-color: #c839db;
+  }
