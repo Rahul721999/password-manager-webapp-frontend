@@ -1,6 +1,6 @@
 import {React, useState} from "react";
 import config from "./config";
-
+import { Link } from "react-router-dom";
 const SignUp = (props) => {
     const base_url = config.myEnvVar;
 
@@ -114,10 +114,9 @@ const SignUp = (props) => {
 
                 <button type="submit">Submit</button>
             </form>
-            <button id="link-btn"
-                onClick={
-                    () => props.onFormSwitch('login')
-            }>Already have account? Log-In</button>
+            <p >
+                <Link to='/' className="link-btn">Already have account? Login Up</Link>
+            </p>
         </div>
 
     )

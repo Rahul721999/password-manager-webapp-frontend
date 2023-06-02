@@ -71,11 +71,13 @@ button:hover {
     background-image: linear-gradient(79deg, #f7944D, #c66fbc 45%, #7439db);
 }
 
-#link-btn {
+.link-btn {
+    font-size: 12px;
     background : none;
     color: white;
+    text-decoration: none;
 }
-#link-btn:hover{
+.link-btn:hover{
     text-decoration:underline;
 }
 
