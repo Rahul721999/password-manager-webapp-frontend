@@ -1,10 +1,15 @@
 import React from "react";
+import List from "./cards";
 
 const Dashboard = () => {
   return (
-    <div>
-      <h2>Welcome to the Dashboard!</h2>
-      <p>You have successfully logged in.</p>
+    <div className="dashboard">
+      <div className="heading-section">
+        <h2>Welcome</h2>
+      </div>
+      <div className="content-section">
+        <List/>
+      </div>
     </div>
   );
 };

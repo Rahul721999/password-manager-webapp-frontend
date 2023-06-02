@@ -1,17 +1,15 @@
-import {React, useState} from 'react';
-import { LoginPage, SignUp } from './components';
+import {React} from 'react';
+import {Dashboard, LoginPage, SignUp} from './components';
 import './App.css';
-const App = () =>{
-    const [currForm, setCurrForm] = useState('login');
-
-    const toggleForm = (formName) =>{
-        setCurrForm(formName)
-    }
+import {Route, Routes} from 'react-router-dom';
+const App = () => {
     return (
         <div className="App">
-            {
-                currForm === 'login' ? <LoginPage onFormSwitch={toggleForm}/> : <SignUp onFormSwitch={toggleForm}/>
-            }
+            <Routes>
+                <Route path='/' element={<LoginPage/>} />
+                <Route path='/signup' element={<SignUp/>} />
+                <Route path='/dashboard' element={<Dashboard/>} />
+            </Routes>
         </div>
     )
 }

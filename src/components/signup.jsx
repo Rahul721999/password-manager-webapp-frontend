@@ -1,6 +1,6 @@
 import {React, useState} from "react";
 import config from "./config";
-
+import { Link } from "react-router-dom";
 const SignUp = (props) => {
     const base_url = config.myEnvVar;
 
@@ -70,8 +70,9 @@ const SignUp = (props) => {
 
             <form className="register-form"
                 onSubmit={handleSubmit}>
-                <label htmlFor="fName">name</label>
-                <input type="text" id="fname"
+                <div className="name-form">
+                <label htmlFor="fName"></label>
+                <input className="name-input" type="text" id="fname"
                     value={firstName}
                     onChange={handleFirstNameChange}
                     name="fname"
@@ -79,16 +80,18 @@ const SignUp = (props) => {
                     required
                     // Add required attribute for form validation
                 />
-                <label htmlFor="lName">last name</label>
-                <input type="text" id="lname"
+                <div className="spacer"></div>
+                <label htmlFor="lName"></label>
+                <input className="name-input" type="text" id="lname"
                     value={lastName}
                     onChange={handleLastNameChange}
                     name="lname"
-                    placeholder="surname"
+                    placeholder="Surname"
                     required
                     // Add required attribute for form validation
                 />
-                <label htmlFor="email">email:</label>
+                </div>
+                <label htmlFor="email">email</label>
                 <input type="text" id="email"
                     value={email}
                     onChange={handleEmailChange}
@@ -111,10 +114,9 @@ const SignUp = (props) => {
 
                 <button type="submit">Submit</button>
             </form>
-            <button className="link-btn"
-                onClick={
-                    () => props.onFormSwitch('login')
-            }>Already have account? Log-In</button>
+            <p >
+                <Link to='/' className="link-btn">Already have account? Login Up</Link>
+            </p>
         </div>
 
     )

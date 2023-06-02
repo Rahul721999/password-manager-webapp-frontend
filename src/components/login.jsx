@@ -1,6 +1,7 @@
 import {React, useState} from "react";
 import Dashboard from './dashboard'
 import config from "./config";
+import {Link, } from "react-router-dom";
 const LoginPage = (props) => {
     const base_url = config.myEnvVar;
     const [loggedIn, setLoggedIn] = useState(false);
@@ -57,10 +58,11 @@ const LoginPage = (props) => {
 
     };
 
-    if (loggedIn) {
-        console.log("email:%s login success", email);
+    if (loggedIn) { // if login success
+        // redirect to Dashboard
         return (
-            <Dashboard/>)
+            <Dashboard/>
+        )
     }
     return (
         <div className="auth-form-container">
@@ -97,10 +99,9 @@ const LoginPage = (props) => {
                 </label>
                 <button type="submit">Submit</button>
             </form>
-            <button className="link-btn"
-                onClick={
-                    () => props.onFormSwitch('signup')
-            }>Don't have account? sign-in here</button>
+            <p >
+                <Link to='/signup' className="link-btn">Don't have account? Sign Up</Link>
+            </p>
         </div>
 
     );
