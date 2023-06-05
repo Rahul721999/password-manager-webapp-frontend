@@ -43,6 +43,7 @@ input {
 .name-form {
     display: flex;
     align-items: center;
+    
 }
 .spacer {
     flex-grow: 1;
@@ -85,7 +86,7 @@ button:hover {
 /* --------------------------------------Dashboard Page---------------------------------- */
 .dashboard {
     --ms-overflow-style: none;
-    height: 600px;
+    height: 60vh;
     width: 300px;
     padding : 5px;
     border: 1px solid white;
@@ -95,11 +96,33 @@ button:hover {
     overflow-x: hidden;
     scrollbar-width: none;
     overflow-y: scroll;
+    display: block;
 }
 .dashboard::-webkit-scrollbar{
     display: none;
 }
-
+.heading-section{
+    height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #c66fbc;
+  border-radius: 10px;
+  width: 297px;
+  
+}
+.content-section{
+    flex: 1;
+    overflow: hidden;
+    padding: 5px;
+}
+.dashboard-footer{
+    height: 55px;
+    width: 297px;
+    background-color:#c66fbc;
+    justify-content: center;
+    align-items: center;
+}
 /* --------------------------------------CARD style---------------------------------- */
 .card-body{
     text-align: left;
@@ -134,6 +157,9 @@ button:hover {
     color: #c66fbc;
     text-align: right;
     display: flex;
+}
+.card-value:hover{
+    text-decoration: underline;
 }
 
 .card-pass-button{
