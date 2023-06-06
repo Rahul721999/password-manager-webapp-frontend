@@ -39,6 +39,7 @@ const Card = (props) => {
         console.log("DEL img clicked for id: ",cardId)
         if (RemoveReq(token, cardId)){
             onDelete(cardId)
+            alert('Deleted')
         }
     }
     /***************************** text field customization ****************************/
