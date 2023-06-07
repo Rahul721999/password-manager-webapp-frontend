@@ -9,6 +9,10 @@ const Card = (props) => {
     const{cardId,cardName, url, username, password, token, onDelete} = props;
     const [showPopup, setShowPopup] = useState(false);
     const popupRef = useRef(null);
+
+
+
+
     /***************************** popup customization ****************************/
     // hide popup when clicking other than the 'ThreeDot'----------
     useEffect(()=>{
@@ -39,7 +43,6 @@ const Card = (props) => {
         console.log("DEL img clicked for id: ",cardId)
         if (RemoveReq(token, cardId)){
             onDelete(cardId)
-            alert('Deleted')
         }
     }
     /***************************** text field customization ****************************/
@@ -143,13 +146,15 @@ async function RemoveReq(AuthToken, id){
             )
         })
         if (response.ok) {
-            // const data = await response.json();
-            alert('Deleted');
+            const data = await response.json();
+            const message = data.message;
+            alert(message);
             return true
         } else {
             const data = await response.json();
             const message = data.message;
             alert(message);
+            return false
         }
     } catch (err) {
         console.log("An Error Occured:", err);
