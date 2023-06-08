@@ -4,9 +4,11 @@ import trash from "../icons/trash.png";
 import edit from "../icons/edit.png";
 import config from "./config";
 
+const base_url = config.myEnvVar;
+
 
 const Card = (props) => {
-    const{cardId,cardName, url, username, password, token, onDelete} = props;
+    const{cardId,cardName, url, username, password, token, onDelete, onEdit} = props;
     const [showPopup, setShowPopup] = useState(false);
     const popupRef = useRef(null);
 
@@ -26,19 +28,19 @@ const Card = (props) => {
             document.removeEventListener("mousedown", handleClickOutside);
           };
         },[]);
-    // handle mouseHover on "Three Dot"--------------------
+    /*----------------------------- handle mouseHover on "Three Dot"-------------------- */
     const handleMouseOver=()=>{
         setShowPopup(true)
     }
-    // handle onClick on "Three Dot"
+    /*------------------------------- handle onClick on "Three Dot"------------------------- */
     const handleClick = () => {
         setShowPopup((prevShowPopup) => !prevShowPopup);
     }
-    // handle Edit Request-------------------------------
+    /* ----------------------------------- handle Edit Request-------------------------------*/
     const handleEdit = (cardId) =>{
-        console.log("EDIT img clicked for id: ",cardId)
+        onEdit(cardId)
     }
-    // handle Remove Request-------------------------------
+    /* --------------------------------- handle Remove Request------------------------------- */
     const handleDel = (cardId) =>{
         console.log("DEL img clicked for id: ",cardId)
         if (RemoveReq(token, cardId)){
@@ -131,7 +133,6 @@ function DropDownItem(props) {
 
 /* ************************ Remove API Request ***************** */
 async function RemoveReq(AuthToken, id){
-    const base_url = config.myEnvVar;
     try {
         const response = await fetch(base_url.concat("/User/delete"), {
             method: "DELETE",

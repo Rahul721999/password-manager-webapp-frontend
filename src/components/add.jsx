@@ -51,7 +51,7 @@ const Add=(props)=>{
                     <input 
                         className='add-card-input-field'
                         type="text"
-                        name="wensiteName"
+                        name="websiteName"
                         value={websiteName}
                         onChange={handleWebsiteNameChange}
                         required></input>
@@ -100,6 +100,7 @@ const Add=(props)=>{
 
 export default Add;
 
+/*---------------------------------------- Store API call ----------------------------------------*/
 async function store(
     Authtoken, 
     website_name,
