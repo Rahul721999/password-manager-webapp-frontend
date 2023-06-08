@@ -123,9 +123,9 @@ async function store(
             )
         })
         if (response.ok) {
-            response.text().then((message)=>{
-                alert(message);
-            })
+            const data = await response.json();
+            const message = data.message;
+            alert(message);
             return true
         } else {
             const data = await response.json();
