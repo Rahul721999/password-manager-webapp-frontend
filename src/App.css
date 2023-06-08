@@ -130,6 +130,17 @@ button:hover {
     border-bottom-right-radius: 10px;
     
 }
+.addButton{
+    background-color: transparent;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    transform: rotate(90deg);
+}
+.addButton:hover{
+    background-image: linear-gradient(79deg, #f7944D, #c66fbc 45%, #7439db);
+    border-radius: 50%;
+    transform: rotate(360deg);
+}
 /* --------------------------------------End of Dashboard Page---------------------------------- */
 
 /* --------------------------------------CARD style---------------------------------- */
@@ -143,15 +154,19 @@ button:hover {
     padding: 15px;
 }
 .website-name{
-    display: flex;
+    overflow: hidden;
+    height: 28px;
+    width: 240px;
     margin: 5px;
     padding-left: 8px;
 }
 
+/* ------------------ Card Row ----------- */
 .website-url, .website-username, .website-password{
     margin: 8px;
     display: flex;
-    align-items: center;    
+    align-items: center;
+    height: 19px;
 }
 .card-labels{
     font-size: 10px;
@@ -161,10 +176,12 @@ button:hover {
 }
 .card-value{
     font-size: 11px;
+    width: 164px;
+    height: 19px;
     margin: 0px;
     color: #c66fbc;
-    text-align: right;
-    display: flex;
+    text-align: left;
+    overflow: hidden;
 }
 .card-value:hover{
     text-decoration: underline;

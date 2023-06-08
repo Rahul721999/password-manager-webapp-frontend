@@ -109,7 +109,6 @@ const SignUp = () => {
                     onChange={handlePasswordChange}
                     name="password"
                     minLength={8}
-                    // Add minLength attribute for password validation
                     required
                     // Add required attribute for form validation
                 />
