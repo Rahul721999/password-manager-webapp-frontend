@@ -1,13 +1,16 @@
-import {React, useState} from "react";
-import Dashboard from './dashboard'
+import {React, useEffect, useState} from "react";
+// import Dashboard from './dashboard'
 import config from "./config";
-import {Link, } from "react-router-dom";
-const LoginPage = (props) => {
-    const base_url = config.myEnvVar;
+
+import {Link, useNavigate} from "react-router-dom";
+const LoginPage = () => {
+
+    const navigate = useNavigate();
     const [loggedIn, setLoggedIn] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [passwordType, setPasswordType] = useState("password");
+    const [AuthToken, setAuthToken] = useState("");
 
     const handleEmailChange = (e) => {
         e.preventDefault();
@@ -28,42 +31,22 @@ const LoginPage = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         // calling login api
-        try {
-            const response = await fetch(base_url.concat("/Auth/LogIn"), {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "/",
-                    "Connection": "keep-alive"
-                },
-                body: JSON.stringify(
-                    {email, password}
-                )
-
-            })
-            if (response.ok) {
-                const data = await response.json();
-                alert("Login Successful");
-                const authToken = data.Authorization;
-                console.log("Authtoken: ", authToken);
-                setLoggedIn(true);
-            } else {
-                const data = await response.json();
-                const message = data.message;
-                alert(message);
-            }
-        } catch (err) {
-            console.log("An Error Occured:", err);
-        };
+        LoginApiCall(email, password, setLoggedIn, setAuthToken)
 
     };
 
-    if (loggedIn) { // if login success
-        // redirect to Dashboard
-        return (
-            <Dashboard/>
-        )
-    }
+    useEffect(() => {
+        if (loggedIn) {
+            // if login success
+            // redirect to Dashboard
+            return(navigate('/dashboard', {
+                state: {
+                    token: AuthToken
+                }
+            }));
+        }
+    },[loggedIn, AuthToken, navigate])
+
     return (
         <div className="auth-form-container">
             <h2>Login</h2>
@@ -92,14 +75,22 @@ const LoginPage = (props) => {
                     // Add required attribute for form validation
                 />
 
-                <label>
+                <label style={
+                    {
+                        display: "flex",
+                        margin: '2px'
+                    }
+                }>
                     show password
                     <input className="box" type="checkbox"
+                        style={
+                            {margin: '0 0 0 10px'}
+                        }
                         onChange={handleCheckBox}/>
                 </label>
                 <button type="submit">Submit</button>
             </form>
-            <p >
+            <p>
                 <Link to='/signup' className="link-btn">Don't have account? Sign Up</Link>
             </p>
         </div>
@@ -108,3 +99,35 @@ const LoginPage = (props) => {
 }
 
 export default LoginPage;
+
+
+async function LoginApiCall(email, password, setLoggedIn, setAuthToken) {
+    const base_url = config.myEnvVar;
+    try {
+        const response = await fetch(base_url.concat("/Auth/LogIn"), {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "/",
+                "Connection": "keep-alive"
+            },
+            body: JSON.stringify(
+                {email, password}
+            )
+
+        })
+        if (response.ok) {
+            const data = await response.json();
+            alert("Login Successful");
+            let AuthToken = data.Authorization;
+            setAuthToken(AuthToken);
+            setLoggedIn(true);
+        } else {
+            const data = await response.json();
+            const message = data.message;
+            alert(message);
+        }
+    } catch (err) {
+        console.log("An Error Occured:", err);
+    };
+}

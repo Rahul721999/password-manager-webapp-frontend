@@ -1,7 +1,9 @@
 import {React, useState} from "react";
 import config from "./config";
-import { Link } from "react-router-dom";
-const SignUp = (props) => {
+
+import { Link,Navigate } from "react-router-dom";
+
+const SignUp = () => {
     const base_url = config.myEnvVar;
 
     const [email, setEmail] = useState("");
@@ -61,7 +63,7 @@ const SignUp = (props) => {
     };
 
     if (signedIn) {
-        props.onFormSwitch('login')
+        return <Navigate to="/"/>;
     }
 
     return (

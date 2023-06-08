@@ -43,6 +43,7 @@ input {
 .name-form {
     display: flex;
     align-items: center;
+    
 }
 .spacer {
     flex-grow: 1;
@@ -84,33 +85,62 @@ button:hover {
 
 /* --------------------------------------Dashboard Page---------------------------------- */
 .dashboard {
-    --ms-overflow-style: none;
     height: 600px;
     width: 300px;
-    padding : 5px;
+    /* padding : 5px; */
     border: 1px solid white;
     border-radius: 10px;
     margin: 0.5rem;
+    overflow: hidden;
+    
+}
+
+.heading-section{
+    height: 60px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position:relative;
+}
+.content-section{
+    /* overflow: hidden; */
+    --ms-overflow-style: none;
+    padding: 2px;
+    height: 480px;
+    width: 295px;
     overflow: scroll;
     overflow-x: hidden;
-    scrollbar-width: none;
     overflow-y: scroll;
+    scrollbar-width: none;
 }
-.dashboard::-webkit-scrollbar{
+.content-section::-webkit-scrollbar{
     display: none;
 }
+.dashboard-footer{
+    height: 55px;
+    width: 297px;
+    background-color:none;
+    justify-content: center;
+    align-items: center;
+    border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
+}
+/* --------------------------------------End of Dashboard Page---------------------------------- */
 
 /* --------------------------------------CARD style---------------------------------- */
 .card-body{
     text-align: left;
-    text-size-adjust: 11px;
     height: 140px;
     width: 250px;
     border-radius: 10px;
     border: 1px solid white;
     margin : 5px;
     padding: 15px;
-    align-content: center;
 }
 .website-name{
     display: flex;
@@ -126,7 +156,8 @@ button:hover {
 .card-labels{
     font-size: 10px;
     display: flex;
-    padding-right: 15px;
+    /* padding-right: 15px; */
+    width: 70px;
 }
 .card-value{
     font-size: 11px;
@@ -134,6 +165,9 @@ button:hover {
     color: #c66fbc;
     text-align: right;
     display: flex;
+}
+.card-value:hover{
+    text-decoration: underline;
 }
 
 .card-pass-button{
@@ -189,3 +223,40 @@ button:hover {
 .dropdownItem:hover {
     background-color: #c839db;
   }
+
+/* -------------------------------------- End of CARD style---------------------------------- */
+/*----------------------  Add Card Style--------------------*/
+.add-card-row{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 250px;
+}
+.add-card-input-field{
+    padding : 5px;
+    margin: 1px;
+    width: 180px;
+    background: transparent;
+    border-radius: 5px;
+    justify-content: center;
+    border: none;
+    background-color: white;
+    opacity: 30%;
+}
+
+.add-card-footer{
+    display: flex;
+    flex-direction: row;
+}
+.cancelBtn, .saveBtn{
+    height: 32px;
+    padding: 20px;
+    width: 125px;
+    margin: auto;
+    border: none;
+    background: transparent;
+    color: white;
+}
+.cancelBtn:hover, .saveBtn:hover{
+    background-image: linear-gradient(79deg, #f7944D, #c66fbc 45%, #7439db);
+}
