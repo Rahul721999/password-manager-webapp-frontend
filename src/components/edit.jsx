@@ -1,7 +1,8 @@
 import {React, useState} from 'react'
 import config from './config';
+import genPassIcon from "../icons/genPassIcon.png";
+import generate from './gen_pass';
 const base_url = config.myEnvVar;
-
 
 function Edit(props) {
     const {
@@ -34,6 +35,12 @@ function Edit(props) {
         setPassword(e.target.value);
     };
 
+    /* --------------------------Handle Password Generate req------------------------*/
+    async function handlePassGen(){
+        const generated_pass = await generate(token);
+        setPassword(generated_pass)
+    }
+
     /*------------------------------------------ handle save Button ------------------------------------------*/
 
     const handleSave = (e) => {
@@ -59,36 +66,39 @@ function Edit(props) {
 
             {/*  -------------Start card Body--------------- */}
             <div className='card-cred-details'>
-                <div className='add-card-row'>
+                <div className='edit-card-row'>
                     <label className="card-labels">Website-Name</label>
-                    <input className='add-card-input-field' type="text" name="websiteName"
+                    <input className='edit-card-input-field' type="text" name="websiteName"
                         value={website_name}
                         onChange={handleWebsiteNameChange}
                         required></input>
                 </div>
-                <div className='add-card-row'>
+                <div className='edit-card-row'>
                     <label className='card-labels'>URL</label>
-                    <input className='add-card-input-field' type="url" name="websiteUrl"
+                    <input className='edit-card-input-field' type="url" name="websiteUrl"
                         value={website_url}
                         onChange={handleUrlChange}
                         required></input>
                 </div>
-                <div className='add-card-row'>
+                <div className='edit-card-row'>
                     <label className='card-labels'>USERNAME</label>
-                    <input className='add-card-input-field' type="text"
+                    <input className='edit-card-input-field' type="text"
                         value={Username}
                         name="username"
                         onChange={handleUsernameChange}
                         required></input>
                 </div>
-                <div className='add-card-row'>
+                <div className='edit-card-password-row'>
                     <label className='card-labels'>PASSWORD</label>
                     {/* <button className='card-pass-button' style={{fontSize: "12px"}}>{password}</button> */}
-                    <input className='add-card-input-field' type="text" name="password"
+                    <input className='edit-card-pass-input-field' type="text" name="password"
                         value={Password}
                         minLength={8}
                         onChange={handlePasswordChange}
-                        required></input>
+                        required>
+                    </input>
+                    <img src={genPassIcon} alt='gen' className='pass-gen-icon' onClick={handlePassGen}/>
+                    
                 </div>
             </div>
             {/* ---------- Card footer -------  */}
@@ -106,7 +116,6 @@ export default Edit
 
 /* ----------------------------------------- Update API call -----------------------------------------*/
 async function updateReq(AuthToken, id, website_name, website_url, username, password) {
-    console.log('update req')
     try {
         const response = await fetch(base_url.concat("/User/update"), {
             method: "PATCH",

@@ -243,13 +243,20 @@ button:hover {
 
 /* -------------------------------------- End of CARD style---------------------------------- */
 /*----------------------  Add Card Style--------------------*/
-.add-card-row{
+.add-card-row, .edit-card-row{
     display: flex;
     align-items: center;
     flex-direction: row;
     width: 250px;
 }
-.add-card-input-field{
+.edit-card-password-row, .add-card-password-row{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 250px;
+}
+
+.add-card-input-field, .edit-card-input-field{
     padding : 5px;
     margin: 1px;
     width: 180px;
@@ -260,6 +267,29 @@ button:hover {
     background-color: white;
     opacity: 30%;
 }
+.edit-card-pass-input-field, .add-card-pass-input-field{
+    padding : 5px;
+    margin: 1px;
+    width: 150px;
+    background: transparent;
+    border-radius: 5px;
+    justify-content: center;
+    border: none;
+    background-color: white;
+    opacity: 30%;
+}
+.pass-gen-icon{
+    height: 20px;
+    width: 20px;
+    position: relative;
+    top: 50%;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+.pass-gen-icon:hover{
+    background-color:#c839db;
+    transform: rotate(180deg);
+}
 
 .add-card-footer{
     display: flex;
@@ -267,13 +297,13 @@ button:hover {
 }
 .cancelBtn, .saveBtn{
     height: 32px;
-    padding: 20px;
     width: 125px;
-    margin: auto;
     border: none;
     background: transparent;
+    opacity: 50%;
     color: white;
 }
 .cancelBtn:hover, .saveBtn:hover{
+    opacity: 100%;
     background-image: linear-gradient(79deg, #f7944D, #c66fbc 45%, #7439db);
 }

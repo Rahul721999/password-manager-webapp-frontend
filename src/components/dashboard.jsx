@@ -20,7 +20,6 @@ const Dashboard = () => {
 
     /* --------------- handle Add req-----------*/
     const handleAdd = () => {
-        console.log('add clicked')
         setShowPopup(true);
         setTimeout(() => {
             if (eleRef.current) {
