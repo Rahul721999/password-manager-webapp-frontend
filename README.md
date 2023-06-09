@@ -1,70 +1,66 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Password-Manager webapp frontend
 
-## Available Scripts
+This is my password manager webapp frontend, developed with React.
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Purpose of this project
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The purpose of a password manager web application is to securely store and manage passwords for various online accounts. Password manager web apps offer a convenient and secure solution for users to generate strong passwords, store them in an encrypted database, and easily access them when needed.
+## Features of this webapp
 
-### `npm test`
+- SignUp, Login
+- User can Add, manage their creadentials of diff websites. 
+- Password-Generator, Password-Analyzer also available.
+- Copy creadentials with a single tap, minimizes the risk of typing mistakes.
+- Password-Suggestions available for better and sequre Password.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Run Locally
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Clone the project along with it's backend(Written in Rust).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Setup backend
+ NOTE: the backend is Written in Rust so you need to setup Rust environments if you want to the backend.
+- Clone the backend first.
+```bash
+  git clone https://github.com/Rahul721999/password-manager-web-app.git
+```
+- Navigate to project repo
+```bash
+  cd password-manager-web-app
+```
+- use this command to run the backend Locally
+```bash
+  cargo run
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Setup frontend
+```bash
+git clone https://github.com/Rahul721999/password-manager-webapp-frontend.git
+```
 
-### `npm run eject`
+Go to the project directory
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+cd my-project
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Install dependencies
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+-NOTE: you need to setup the .env file before run the program.
+```env
+REACT_APP_BACKEND_URL=localhost:port
+```
 
-## Learn More
+Now start the server
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm run start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
